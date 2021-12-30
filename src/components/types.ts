@@ -22,4 +22,12 @@ interface OppButtonProps {
   setResetValueToggle: React.Dispatch<SetStateAction<boolean>>
 }
 
-export type {Oper, Expr, DigitButtonProps, OppButtonProps}
+interface ClearButtonProps {
+  value: string,
+  setValue: React.Dispatch<SetStateAction<string>>,
+  setExpr: React.Dispatch<SetStateAction<Array<Expr>>>,
+  setResetValueToggle: React.Dispatch<SetStateAction<boolean>>
+}
+
+export type {Oper, Expr, DigitButtonProps, OppButtonProps, 
+    ClearButtonProps}

@@ -18,11 +18,13 @@ const OppButton: FC<OppButtonProps> = ({ opLabel, value, setValue, expr, setExpr
 
   const handleOnClick = (opLabel: Oper) => {
     if (expr.length === 2 && opLabel === "=") {
+      //expr contains a value and an operation
       const exprCopy = [...expr]
       const op1 = exprCopy.pop()
       const v1 = exprCopy.pop()
       setValue(String(evaluate((op1 as Oper), Number(v1), Number(value))))
     } else if (expr.length > 2 && opLabel === "=") {
+      //expr contains a value, an operation and a value
       const exprCopy = [...expr]
       const v2 = exprCopy.pop()
       const op1 = exprCopy.pop()
@@ -37,6 +39,10 @@ const OppButton: FC<OppButtonProps> = ({ opLabel, value, setValue, expr, setExpr
       replacement[replacement.length - 1] = opLabel
       setExpr(replacement)
     } else if (expr.length > 2) {
+      //There are three elemnts in expr
+      //evaluating the elements and push the result back into 
+      //the stack. this ensures that the stack never grows to 
+      //more than three elements
       const exprCopy = [...expr]
       const v1 = exprCopy.pop()
       const op = exprCopy.pop()
@@ -52,10 +58,12 @@ const OppButton: FC<OppButtonProps> = ({ opLabel, value, setValue, expr, setExpr
       setValue(String(evaluate((op1 as Oper), Number(v1), Number(value))))
       setExpr([])
     } else {
+      /*
       const replacement = [...expr]
       replacement.push(Number(value))
       replacement.push(opLabel)
-      setExpr(replacement)
+      */
+      setExpr([...expr, Number(value), opLabel])
     }
 
     if (!resetValueToggle) {

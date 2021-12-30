@@ -37,3 +37,34 @@ test('Evaluates Expression', () => {
   expect(screen.getByTestId("display")).toHaveTextContent("13")
 })
 
+test('If "0" is displayed, clear button shows "AC"', () => {
+  render(<Calculator />)
+  expect(screen.getByTestId("clear")).toHaveTextContent("AC")
+})
+
+test('If there is a value, clear shows "C"', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId('6'))
+  expect(screen.getByTestId("clear")).toHaveTextContent("C")
+})
+
+test('If there are entries, "C" clears the value (sets to 0)', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId('6'))
+  expect(screen.getByTestId("display")).toHaveTextContent("6")
+  fireEvent.click(screen.getByTestId('clear'))
+  expect(screen.getByTestId("display")).toHaveTextContent("0")
+})
+
+test('AC Clears the expression stack', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId('6'))
+  fireEvent.click(screen.getByTestId("+"))
+  fireEvent.click(screen.getByTestId('7'))
+  fireEvent.click(screen.getByTestId("clear")) // sets to 0
+  expect(screen.getByTestId("display")).toHaveTextContent("0")
+  expect(screen.getByTestId("clear")).toHaveTextContent("AC")
+  fireEvent.click(screen.getByTestId("clear")) // empties stack
+  fireEvent.click(screen.getByTestId("="))  // evaluate the stack
+  expect(screen.getByTestId("display")).toHaveTextContent("0")
+})

@@ -2,6 +2,7 @@ import React, { FC, useState } from "react"
 import Display from "./Display"
 import DigitButton from "./DigitButton"
 import OppButton from "./OppButton"
+import ClearButton from "./ClearButton"
 import {Oper, Expr} from "./types"
 
 
@@ -24,6 +25,7 @@ const Calculator = () => {
   return (
     <div>
       <Display value={value} /> 
+      <ClearButton value={value} setValue={setValue} setExpr={setExpr} setResetValueToggle={setResetValueToggle}/>
       <DigitButton buttonLabel={"6"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       <DigitButton buttonLabel={"7"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       <OppButton opLabel="+" value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
