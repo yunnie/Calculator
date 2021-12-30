@@ -3,7 +3,9 @@ import Display from "./Display"
 import DigitButton from "./DigitButton"
 import OppButton from "./OppButton"
 import ClearButton from "./ClearButton"
+import ModifyValueButton from "./ModifyValueButton"
 import {Oper, Expr} from "./types"
+import {handlePlusMinus} from "./handlers"
 
 
 const Calculator = () => {
@@ -25,6 +27,7 @@ const Calculator = () => {
   return (
     <div>
       <Display value={value} /> 
+      <ModifyValueButton modifierLabel="+/-" modifyFn={handlePlusMinus(value, setValue)} />
       <ClearButton value={value} setValue={setValue} setExpr={setExpr} setResetValueToggle={setResetValueToggle}/>
       <DigitButton buttonLabel={"6"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       <DigitButton buttonLabel={"7"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />

@@ -68,3 +68,29 @@ test('AC Clears the expression stack', () => {
   fireEvent.click(screen.getByTestId("="))  // evaluate the stack
   expect(screen.getByTestId("display")).toHaveTextContent("0")
 })
+
+test('Plus minus toggles number from positive to neg', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId('6'))
+  expect(screen.getByTestId("display")).toHaveTextContent("6")
+  fireEvent.click(screen.getByTestId('+/-'))
+  expect(screen.getByTestId("display")).toHaveTextContent("-6")
+})
+
+test('Value remains negative appending to -0', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId('+/-'))
+  expect(screen.getByTestId("display")).toHaveTextContent("-0")
+  fireEvent.click(screen.getByTestId('6'))
+  expect(screen.getByTestId("display")).toHaveTextContent("-6")
+})
+
+test('Adding a negative number is the same as subtraction', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId("7"))
+  fireEvent.click(screen.getByTestId("+/-"))
+  fireEvent.click(screen.getByTestId("+"))
+  fireEvent.click(screen.getByTestId("6"))
+  fireEvent.click(screen.getByTestId("="))
+  expect(screen.getByTestId("display")).toHaveTextContent("-1")
+})

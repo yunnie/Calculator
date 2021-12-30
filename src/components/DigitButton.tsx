@@ -14,8 +14,10 @@ const DigitButton: FC<DigitButtonProps> = ({buttonLabel,  value, setValue, reset
       setValue(buttonLabel)
       setResetValueToggle(false)
     } else {
-      if (value === "0" || value === "-0") {
+      if (value === "0") {
         setValue(buttonLabel)
+      } else if (value === "-0") {
+        setValue("-" + buttonLabel)
       } else {
         setValue(value + buttonLabel)
       }
