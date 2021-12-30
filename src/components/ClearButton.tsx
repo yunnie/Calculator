@@ -14,7 +14,6 @@ const ClearButton: FC< ClearButtonProps > = ({value, setValue,
     }
   }
 
-
   return(
     <button
       data-testid="clear"
