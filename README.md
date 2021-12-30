@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# A Simple Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The world doesn't really need another calcuator app. But writing this application did provide me with a project to help develop a better understanding of both Typescript and React. 
 
-## Available Scripts
+## How to describe an expression
 
-In the project directory, you can run:
+Often a recursive type is used to describe a mathematical expression, and then a recursive `evaluation` function unwinds the expression into a single value. 
 
-### `npm start`
+But since we're entering in the values and operators one at a time, I decided to keep track of the expression in a stack. Otherwise, I would need to keep track of incomplete or partial expressions. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I also choose to keep track of the numbers as `strings` as this made it easier to deal with inserting a decimal place and converting from positive to negative values. One problem is that non-numeric strings could end up in the `number`. But the only way to enter a value is through pressing a button, and the buttons are limited, representing the digits as strings seems reasonably safe.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## What global states
 
-### `npm test`
+There were a few global states that I needed to track:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* The value displayed on the screen
+* The expression stack
+* Whether or not the value should be reset on the next input
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Choosing to represent the numbers as `strings` reduced the number of states that I needed to track. 
