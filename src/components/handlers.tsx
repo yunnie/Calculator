@@ -17,4 +17,12 @@ const handlePercent = (value: string, setValue: SetAction<string>): HandleModify
   })
 }
 
-export {handlePlusMinus, handlePercent}
+const handleDecimal = (value: string, setValue: SetAction<string>): HandleModifyValueFn => {
+  return ( () => {
+    if (!value.includes(".")) {
+      setValue(value + ".")
+    }
+  })
+}
+
+export {handlePlusMinus, handlePercent, handleDecimal}
