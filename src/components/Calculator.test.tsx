@@ -112,3 +112,15 @@ test('Can convert to twice percentage', () => {
   fireEvent.click(screen.getByTestId("%"))
   expect(screen.getByTestId("display")).toHaveTextContent("0.0007")
 })
+
+test('Can add a decimal point', () => {
+  render(<Calculator />) 
+  fireEvent.click(screen.getByTestId("7"))
+  fireEvent.click(screen.getByTestId("."))
+  fireEvent.click(screen.getByTestId("6"))
+  expect(screen.getByTestId("display")).toHaveTextContent("7.6")
+  fireEvent.click(screen.getByTestId("."))
+  fireEvent.click(screen.getByTestId("6"))
+  expect(screen.getByTestId("display")).toHaveTextContent("7.66")
+  fireEvent.click(screen.getByTestId("."))
+})
