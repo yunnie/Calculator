@@ -11,4 +11,10 @@ const handlePlusMinus = (value: string, setValue: SetAction<string>): HandleModi
   })
 }
 
-export {handlePlusMinus}
+const handlePercent = (value: string, setValue: SetAction<string>): HandleModifyValueFn => {
+  return (() => {
+    setValue(String(Number(value)/100))
+  })
+}
+
+export {handlePlusMinus, handlePercent}
