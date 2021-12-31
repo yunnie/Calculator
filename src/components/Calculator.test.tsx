@@ -94,3 +94,21 @@ test('Adding a negative number is the same as subtraction', () => {
   fireEvent.click(screen.getByTestId("="))
   expect(screen.getByTestId("display")).toHaveTextContent("-1")
 })
+
+test('Can convert a number into a percentage', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId("7"))
+  fireEvent.click(screen.getByTestId("6"))
+  expect(screen.getByTestId("display")).toHaveTextContent("76")
+  fireEvent.click(screen.getByTestId("6"))
+  fireEvent.click(screen.getByTestId("%"))
+  expect(screen.getByTestId("display")).toHaveTextContent("7.66")
+})
+
+test('Can convert to twice percentage', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId("7"))
+  fireEvent.click(screen.getByTestId("%"))
+  fireEvent.click(screen.getByTestId("%"))
+  expect(screen.getByTestId("display")).toHaveTextContent("0.0007")
+})
