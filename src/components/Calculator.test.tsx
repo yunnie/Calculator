@@ -15,6 +15,26 @@ test('Pressing numeric buttons 6 then 7 displays 67', () => {
   expect(screen.getByTestId("display")).toHaveTextContent("67")
 })
 
+test('Other digits display on screen', () => {
+  render(<Calculator />)
+  fireEvent.click(screen.getByTestId('1'))
+  expect(screen.getByTestId("display")).toHaveTextContent("1")
+  fireEvent.click(screen.getByTestId("2"))
+  expect(screen.getByTestId("display")).toHaveTextContent("12")
+  fireEvent.click(screen.getByTestId("3"))
+  expect(screen.getByTestId("display")).toHaveTextContent("123")
+  fireEvent.click(screen.getByTestId("4"))
+  expect(screen.getByTestId("display")).toHaveTextContent("1234")
+  fireEvent.click(screen.getByTestId("5"))
+  expect(screen.getByTestId("display")).toHaveTextContent("12345")
+  fireEvent.click(screen.getByTestId("8"))
+  expect(screen.getByTestId("display")).toHaveTextContent("123458")
+  fireEvent.click(screen.getByTestId("9"))
+  expect(screen.getByTestId("display")).toHaveTextContent("1234589")
+  fireEvent.click(screen.getByTestId("0"))
+  expect(screen.getByTestId("display")).toHaveTextContent("12345890")
+})
+
 test('Pressing numeric buttons then an operator does not reset display', () => {
   render(<Calculator />)
   fireEvent.click(screen.getByTestId('6'))
