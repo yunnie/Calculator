@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import { OppButtonProps, Oper } from "./types"
 
 
-const OppButton: FC<OppButtonProps> = ({ opLabel, value, setValue, expr, setExpr, resetValueToggle, setResetValueToggle }) => {
+const OppButton: FC<OppButtonProps> = ({ opLabel, opDisplay, value, setValue, expr, setExpr, resetValueToggle, setResetValueToggle }) => {
 
   const evaluate = (op: Oper, v1: number, v2: number): number => {
       if (op === "+") {
@@ -75,7 +75,7 @@ const OppButton: FC<OppButtonProps> = ({ opLabel, value, setValue, expr, setExpr
     <button 
       data-testid={opLabel}
       onClick={() => handleOnClick(opLabel)}>
-      {opLabel}
+      {opDisplay}
     </button>
   )
 }

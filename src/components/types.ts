@@ -17,6 +17,7 @@ interface DigitButtonProps {
 
 interface OppButtonProps {
   opLabel: Oper,
+  opDisplay: string,
   value: string,
   setValue: SetAction<string>,
   expr: Array<Expr>,
@@ -38,4 +39,5 @@ interface ModifyValueProps {
 }
 
 export type {Oper, Expr, DigitButtonProps, OppButtonProps, 
-    ClearButtonProps, ModifyValueProps, SetAction, HandleModifyValueFn}
+    ClearButtonProps, ModifyValueProps, SetAction, 
+    HandleModifyValueFn}

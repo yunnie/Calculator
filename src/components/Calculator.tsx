@@ -4,8 +4,9 @@ import DigitButton from "./DigitButton"
 import OppButton from "./OppButton"
 import ClearButton from "./ClearButton"
 import ModifyValueButton from "./ModifyValueButton"
-import {Oper, Expr} from "./types"
+import {Expr} from "./types"
 import {handlePlusMinus, handlePercent, handleDecimal} from "./handlers"
+
 
 
 const Calculator = () => {
@@ -23,6 +24,12 @@ const Calculator = () => {
    *   Maybe add handleOnClick to DigitButton and OppButton
    */
 
+  const divide ='\u00F7'
+  const multiply = '\u2A09'
+  const minus = '\u2212'
+  const plus = '\u002B'
+  const equal = '\u003D'
+
 
   return (
     <div>
@@ -31,35 +38,35 @@ const Calculator = () => {
         <ClearButton value={value} setValue={setValue} setExpr={setExpr} setResetValueToggle={setResetValueToggle}/>
         <ModifyValueButton modifierLabel="+/-" modifyFn={handlePlusMinus(value, setValue)} />
         <ModifyValueButton modifierLabel="%" modifyFn={handlePercent(value, setValue)} />
-        <OppButton opLabel="/" value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <OppButton opLabel="/" opDisplay={divide} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       </div>
 
       <div className="second-row">
         <DigitButton buttonLabel={"7"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <DigitButton buttonLabel={"8"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <DigitButton buttonLabel={"9"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <OppButton opLabel="*" value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <OppButton opLabel="*" opDisplay={multiply} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       </div>
      
       <div className="third-row">
         <DigitButton buttonLabel={"4"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <DigitButton buttonLabel={"5"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <DigitButton buttonLabel={"6"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <OppButton opLabel="-" value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <OppButton opLabel="-" opDisplay={minus} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       </div>
 
       <div className="fourth-row">
         <DigitButton buttonLabel={"1"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <DigitButton buttonLabel={"2"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <DigitButton buttonLabel={"3"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <OppButton opLabel="+" value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <OppButton opLabel="+" opDisplay={plus} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       </div>
       
       <div className="fifth-row">
         <DigitButton buttonLabel={"0"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <ModifyValueButton modifierLabel="." modifyFn={handleDecimal(value, setValue)} />
     
-        <OppButton opLabel="=" value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <OppButton opLabel="=" opDisplay={equal} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       </div>
     </div>
   )
