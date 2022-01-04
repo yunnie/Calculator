@@ -1,6 +1,7 @@
 import React from "react"
 import {render, fireEvent, screen} from "@testing-library/react"
 import Calculator from "./Calculator"
+import { Oper } from "./types"
 
 describe('Calculator display and clear', () => {
   it('Initial displays is set to 0', () => {
@@ -30,13 +31,13 @@ describe('Calculator display and clear', () => {
   it('AC Clears the expression stack', () => {
     render(<Calculator />)
     fireEvent.click(screen.getByTestId('6'))
-    fireEvent.click(screen.getByTestId("+"))
+    fireEvent.click(screen.getByTestId(Oper.Plus))
     fireEvent.click(screen.getByTestId('7'))
     fireEvent.click(screen.getByTestId("clear")) // sets to 0
     expect(screen.getByTestId("display")).toHaveTextContent("0")
     expect(screen.getByTestId("clear")).toHaveTextContent("AC")
     fireEvent.click(screen.getByTestId("clear")) // empties stack
-    fireEvent.click(screen.getByTestId("="))  // evaluate the stack
+    fireEvent.click(screen.getByTestId(Oper.Equal))  // evaluate the stack
     expect(screen.getByTestId("display")).toHaveTextContent("0")
   })
 })
