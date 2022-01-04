@@ -1,6 +1,7 @@
 import React from "react"
 import {render, fireEvent, screen} from "@testing-library/react"
 import Calculator from "./Calculator"
+import { Oper } from "./types"
 
 describe('Modify Value Buttons', () => {
 
@@ -24,9 +25,9 @@ describe('Modify Value Buttons', () => {
     render(<Calculator />)
     fireEvent.click(screen.getByTestId("7"))
     fireEvent.click(screen.getByTestId("+/-"))
-    fireEvent.click(screen.getByTestId("+"))
+    fireEvent.click(screen.getByTestId(Oper.Plus))
     fireEvent.click(screen.getByTestId("6"))
-    fireEvent.click(screen.getByTestId("="))
+    fireEvent.click(screen.getByTestId(Oper.Equal))
     expect(screen.getByTestId("display")).toHaveTextContent("-1")
   })
 
