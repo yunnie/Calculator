@@ -7,7 +7,7 @@ const ModifyValueButton: FC<ModifyValueProps> = ({ modifierLabel, modifyFn })  =
     <button 
       data-testid={modifierLabel} 
       onClick={() => modifyFn()}
-      className="modifier">
+      className="modifier-button">
       {modifierLabel} 
     </button>
   )

@@ -68,7 +68,7 @@ const OppButton: FC<OppButtonProps> = ({ op, value, setValue, expr, setExpr, res
   }
 
   return (
-    <button 
+    <button className="opp-button"
       data-testid={op}
       onClick={() => handleOnClick(op)}>
       {op}

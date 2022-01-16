@@ -1,9 +1,10 @@
 .container {
   width: 240px;
-  margin: 0 auto;
+  margin: 1rem auto;
   border: 1px solid black;
   border-radius: 2px;
   padding: 5px;
+  background-color: #CDCDCD;
 }
 
 .display {
@@ -13,6 +14,7 @@
   height: 2.5rem;;
   margin: 5px;
   font-size: 2.0em;
+  background-color: #E6E6E6;
 }
 
 button {
@@ -20,4 +22,16 @@ button {
   height: 50px;
   margin: 5px;
   font-size: 1.5em;
+  background-color: #B1A296;
+  border-radius: 5px;
+}
+
+.opp-button  {
+  background-color: #5D5C61;
+  color: white;
+}
+
+.modifier-button {
+  background-color: #7395AE;
+
 }
