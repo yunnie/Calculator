@@ -17,6 +17,7 @@ const ClearButton: FC< ClearButtonProps > = ({value, setValue,
   return(
     <button
       data-testid="clear"
+      className="clear-button"
       onClick={()=> handleClearClick()}>
       {value === "0" ? "AC" : "C"}
     </button>

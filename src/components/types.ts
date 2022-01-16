@@ -40,7 +40,7 @@ interface ResetValueState {
 }
 
 /* React Component Prop types */
-type DigitButtonProps = { buttonLabel: string } & 
+type DigitButtonProps = { buttonLabel: string , buttonClass: string } & 
   ValueState & 
   ResetValueState
 

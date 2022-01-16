@@ -30,28 +30,28 @@ const Calculator = () => {
       </div>
 
       <div className="second-row">
-        <DigitButton buttonLabel={"7"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <DigitButton buttonLabel={"8"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <DigitButton buttonLabel={"9"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"7"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"8"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"9"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <OppButton op={Oper.Multiply} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       </div>
      
       <div className="third-row">
-        <DigitButton buttonLabel={"4"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <DigitButton buttonLabel={"5"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <DigitButton buttonLabel={"6"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"4"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"5"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"6"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <OppButton op={Oper.Minus} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       </div>
 
       <div className="fourth-row">
-        <DigitButton buttonLabel={"1"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <DigitButton buttonLabel={"2"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
-        <DigitButton buttonLabel={"3"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"1"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"2"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"3"} buttonClass={"single"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <OppButton op={Oper.Plus} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
       </div>
       
       <div className="fifth-row">
-        <DigitButton buttonLabel={"0"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
+        <DigitButton buttonLabel={"0"} buttonClass={"double"} value={value} setValue={setValue} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />
         <ModifyValueButton modifierLabel="." modifyFn={handleDecimal(value, setValue)} />
     
         <OppButton op={Oper.Equal} value={value} setValue={setValue} expr={expr} setExpr={setExpr} resetValueToggle={resetValueToggle} setResetValueToggle={setResetValueToggle} />

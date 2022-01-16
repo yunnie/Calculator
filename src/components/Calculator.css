@@ -26,6 +26,10 @@ button {
   border-radius: 5px;
 }
 
+.double {
+  width: 110px;
+}
+
 .opp-button  {
   background-color: #5D5C61;
   color: white;
@@ -33,5 +37,8 @@ button {
 
 .modifier-button {
   background-color: #7395AE;
+}
 
+.clear-button {
+  background-color: #7395AE;
 }

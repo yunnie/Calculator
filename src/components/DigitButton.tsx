@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import { DigitButtonProps } from "./types"
 
 
-const DigitButton: FC<DigitButtonProps> = ({buttonLabel,  value, setValue, resetValueToggle, setResetValueToggle }) => {
+const DigitButton: FC<DigitButtonProps> = ({buttonLabel, buttonClass,  value, setValue, resetValueToggle, setResetValueToggle }) => {
 
   const handleOnClick = (buttonLabel: string ) => {
     // Need to deal with negatives and percentages
@@ -26,8 +26,10 @@ const DigitButton: FC<DigitButtonProps> = ({buttonLabel,  value, setValue, reset
 
   return (
     <button 
+      className={buttonClass}
       data-testid={buttonLabel}
-      onClick={() => handleOnClick(buttonLabel)}>
+      onClick={() => handleOnClick(buttonLabel)}
+      >
       {buttonLabel}
     </button>
   )
