@@ -6,25 +6,21 @@ import ClearButton from "./ClearButton"
 import ModifyValueButton from "./ModifyValueButton"
 import {Expr, Oper} from "./types"
 import {handlePlusMinus, handlePercent, handleDecimal} from "./handlers"
+import './Calculator.css'
 
 
 const Calculator = () => {
   const [value, setValue] = useState<string>("0") // What is displayed
   /* contains the calculation expression */
-  const [expr, setExpr] = useState<Array<Expr>>([]) // Not sure if 0 makes sense here
+  const [expr, setExpr] = useState<Array<Expr>>([]) 
+
+  /* After an operator (+, -, *, /) is pressed, 
+   * if a digit is pressed then the value should
+   * reset to the new digit */
   const [resetValueToggle, setResetValueToggle] = useState<boolean>(false)
 
-  /* Percent does not need to be state. Just an action. */
-  /* write handlers for
-   *   All Clear/Clear
-   *   Plus Minus
-   *   Percent
-   *   Equal (Single action button)
-   *   Maybe add handleOnClick to DigitButton and OppButton
-   */
-
   return (
-    <div>
+    <div className="container">
       <Display value={value} /> 
       <div className="first-row">
         <ClearButton value={value} setValue={setValue} setExpr={setExpr} setResetValueToggle={setResetValueToggle}/>
