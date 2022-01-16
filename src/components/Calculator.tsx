@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react"
+import React, { useState } from "react"
 import Display from "./Display"
 import DigitButton from "./DigitButton"
 import OppButton from "./OppButton"
